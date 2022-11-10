@@ -1,0 +1,5 @@
+<h2>Onze gewaardeerde klanten {{name}}</h2>
+    <ul *ngIf="customers" class="list-group">
+        <li *ngFor="let customer of customers" class="list-group-item">{{customer}}</li>
+    </ul>
+

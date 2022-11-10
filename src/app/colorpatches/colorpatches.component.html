@@ -1,0 +1,17 @@
+<div [style.background]="currentPatch.getRgba()">
+    <p>colorpatches works!</p>
+    <div *ngFor="let patch of colorpatchArray">
+        {{patch.rgba}}
+    </div>
+    <div class="patchcontainer">
+        <div *ngFor="let patch of colorpatchArray" [style.background]="patch.getRgba()" class="colorpatch"
+            [title]="patch.name" (click)="onClickPatch(patch)">
+        </div>
+    </div>
+    <div>
+      <label for="r">r</label><input name="r" type="range" max="255" [(ngModel)]="currentPatch.r"> {{currentPatch.r}} <br>
+      <label for="g">g</label><input name="g" type="range" max="255" [(ngModel)]="currentPatch.g"> {{currentPatch.g}} <br>
+      <label for="b">b</label><input name="b" type="range" max="255" [(ngModel)]="currentPatch.b"> {{currentPatch.b}} <br>
+      <label for="a">a</label><input name="a" type="range" max="1" step="0.01" [(ngModel)]="currentPatch.a"> {{currentPatch.a}}
+    </div>
+</div>

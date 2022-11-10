@@ -1,0 +1,9 @@
+.colorpatch {
+  width: 64px;
+  height: 64px;
+  margin: 5px;
+}
+.patchcontainer {
+  display: flex;
+  flex-direction: row;
+}
