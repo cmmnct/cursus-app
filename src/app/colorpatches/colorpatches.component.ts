@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Colorpatch } from '../models/colorpatch';
+import { PatchService, Patchstate } from '../services/patch.service';
 
 @Component({
   selector: 'app-colorpatches',
@@ -11,24 +12,22 @@ export class ColorpatchesComponent implements OnInit {
   colorpatchArray: Colorpatch[] = [];
 
   currentPatch = new Colorpatch(255, 255, 255, 1);
+  patchState!: Patchstate;
 
-  constructor() {}
+  constructor(private patchservice: PatchService) {}
 
   ngOnInit(): void {
-    this.colorpatchArray = [
-      new Colorpatch(255, 0, 0, 1, 'red'),
-      new Colorpatch(0, 2550, 0, 1, 'green'),
-      new Colorpatch(0, 0, 255, 1, 'blue'),
-      new Colorpatch(255, 255, 0, 1, 'yellow'),
-      new Colorpatch(0, 255, 255, 1, 'cyaan'),
-      new Colorpatch(255, 0, 255, 1, 'magenta'),
-      new Colorpatch(0, 0, 0, 1, 'black'),
-      new Colorpatch(255, 255, 255, 1, 'white'),
-    ];
+    this.colorpatchArray = this.patchservice.getColorPatches();
+    this.patchState = this.patchservice.getPatchState();
   }
 
   onClickPatch(patch: Colorpatch) {
     //alert(`U klikte op patch ${patch.name} met de waarde ${patch.rgba}`)
-    this.currentPatch = patch;
+    
+    this.patchState.locked ? null : this.currentPatch = patch;
+  }
+
+  doLogin() {
+    this.patchState.locked = false;
   }
 }

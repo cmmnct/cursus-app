@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { City } from './city';
 import { CityService } from './services/city.service';
 
@@ -10,6 +11,7 @@ import { CityService } from './services/city.service';
 export class AppComponent {
   title = 'cursus';
   cities: City[] = [];
+  cities$!: Observable<City[]>;
   provincies: string[] = [];
   showCities: Boolean = true;
   nlText = {
@@ -17,12 +19,13 @@ export class AppComponent {
     t2: 'Toon lijst met steden',
   };
   currentCity: City = new City(-1 , '', -1);
-  newCity: City = new City(-1, '', -1 , '');
+  newCity: City = new City(-1, '', -1, '');
 
   constructor(private cityService: CityService) {}
 
   ngOnInit(): void {
-    this.cities = this.cityService.getCities();
+    //this.cityService.getCities().subscribe(cityArray => this.cities = cityArray);
+    this.cities$ = this.cityService.getCities();
     this.provincies = this.cityService.getProvincies();
   }
 
@@ -39,4 +42,6 @@ export class AppComponent {
   addCity() {
     this.cityService.addCity(this.newCity);
   }
+
+ 
 }

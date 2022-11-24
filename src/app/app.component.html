@@ -7,7 +7,7 @@
         <span *ngSwitchCase="false">{{nlText.t2}}</span>
        </span>
       <ul class="list-group" *ngIf="cities && showCities">
-        <li *ngFor="let city of cities" class="list-group-item" (click)="showCity(city)">
+        <li *ngFor="let city of cities$ | async" class="list-group-item" (click)="showCity(city)">
           {{city.id}} - {{city.name}} ({{provincies[city.province]}})
         </li>
       </ul>
@@ -19,15 +19,19 @@
       <p>Voeg stad toe...</p>
       
       Stad = <input type="text" name="" id="" [(ngModel)]="newCity.name" placeholder="naam van de stad"> <br>
+      
       Provincie = <select [(ngModel)]="newCity.province" >
         <option value="-1" disabled>Kies een provincie...</option>
         <option *ngFor="let item of provincies; let i = index" [value]="i">{{item}}</option>
       </select> <br>
+
       Image URL = <input type="url" name="" id="" [(ngModel)]="newCity.url"> <br>
       <button (click)="addCity()" class="btn btn-primary" [disabled]="!newCity.name || newCity.province < 0 || !newCity.url">Voeg stad toe</button>
 
       <hr>
       <app-colorpatches></app-colorpatches>
+      <app-patchdetail></app-patchdetail>
+      
     </div>
     
   </div>

@@ -1,0 +1,26 @@
+[
+    {
+        "id" : 1,
+        "name" : "Groningen",
+        "province" : 0,
+        "url" : "https://www.dutchnews.nl/wpcms/wp-content/uploads/2020/11/central-Groningen.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Hengelo",
+        "province": 3,
+        "url": "https://media.indebuurt.nl/hengelo/2020/03/05121431/centrum-hengelo-scaled-e1584693263414.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Den Haag",
+        "province": 7,
+        "url": "https://www.reisroutes.be/userfiles/fotos/skyline-van-den-haag-nederland_28879_xl.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Assen",
+        "province": 2,
+        "url": "https://www.holland.com/upload_mm/2/0/c/78014_fullimage_people%20enjoying%20the%20spring%20weather%20at%20restaurants%20in%20assen%20%C2%A9%20marc%20venema%20via%20shutterstock.jpg"
+    }
+]

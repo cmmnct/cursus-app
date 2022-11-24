@@ -1,0 +1,6 @@
+<h1>patchdetail</h1>
+<div class="patchcontainer">
+    <div *ngFor="let patch of colorpatchArray" [style.background]="patch.getRgba()" class="colorpatch"
+        [title]="patch.name" (click)="onClickPatch(patch)">
+    </div>
+</div>

@@ -8,16 +8,20 @@ import { CustomerComponent } from './customer/customer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SomeComponent } from './some/some.component';
 import { ColorpatchesComponent } from './colorpatches/colorpatches.component';
+import { HttpClientModule} from '@angular/common/http';
+import { PatchdetailComponent } from './patchdetail/patchdetail.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerComponent,
     SomeComponent,
-    ColorpatchesComponent
+    ColorpatchesComponent,
+    PatchdetailComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     AppRoutingModule,
     NgbModule
